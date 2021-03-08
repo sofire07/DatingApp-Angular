@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../app/.services/user.service';
+import { User } from '../app/.models/user';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'DatingApp-Angular';
+
+  users: User[];
+  constructor(private _userService: UserService) {}
+
+  ngOnInit(){
+    this.getUsers();
+  }
+
+  getUsers(){
+    this._userService.getUsers().subscribe(res => this.users = res);
+  }
+
+  
 }
