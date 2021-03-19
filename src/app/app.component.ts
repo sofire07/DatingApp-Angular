@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../app/.services/user.service';
-import { User } from '../app/.models/user';
+import { User } from './.models/user';
+import { UserLoggedIn } from './.models/user-logged-in';
+import { AccountService } from './.services/account.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-root',
@@ -9,16 +12,19 @@ import { User } from '../app/.models/user';
 })
 export class AppComponent {
 
-  users: User[];
-  constructor(private _userService: UserService) {}
+  userLoggedIn: UserLoggedIn;
+  constructor(private account: AccountService) {}
 
   ngOnInit(){
-    this.getUsers();
+    this.setCurrentUser();
   }
 
-  getUsers(){
-    this._userService.getUsers().subscribe(res => this.users = res);
+  setCurrentUser(){
+    this.userLoggedIn = JSON.parse(localStorage.getItem('user'));
+    this.account.setCurrentUser(this.userLoggedIn);
   }
+
+
 
   
 }

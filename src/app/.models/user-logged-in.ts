@@ -1,15 +1,16 @@
-import { Photo } from '../.models/photo';
-
-export interface User {
+import {Photo} from '../.models/photo';
+export interface UserLoggedIn {
     id: string;
     firstName: string;
     lastName: string;
     userName: string;
-    photoUrl: string;
     email: string;
     phoneNumber: string;
-    age: number;
+    photoUrl: string;
+    token: string;
+    tokenExpires: string;
     doB: Date;
+    age: number;
     knownAs: string;
     created: Date;
     lastActive: Date;

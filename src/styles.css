@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+nav {
+  font-family: "Lobster", cursive;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: rgba(0,0,0,.87);
+  background-color: pink;
+}
+
+simple-snack-bar span {
+  margin:auto;
+  text-align: center;
+}
+
+/* simple-snack-bar::ng-deep .mat-warn {
+  background: #f44336;
+  color: white;
+} */
+
+
+/* warn: #f44336
+primary: #3f51b5
+accent: #ff4081 */

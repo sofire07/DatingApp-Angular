@@ -1,0 +1,34 @@
+nav {
+  /* background-color: rgb(162, 31, 31); */
+  background-color: indigo;
+}
+
+nav div a.navbar-brand {
+  color: #ff4081;
+  font-size: xx-large;
+  margin-bottom:5px;
+}
+
+
+nav ul li a {
+  color: pink;
+}
+
+nav ul li a:hover {
+  color:#ff4081;
+}
+
+nav ul li a.active{
+  color: #ff4081;
+
+}
+
+::ng-deep .mat-warn {
+  background: #f44336;
+  color: white;
+}
+
+::ng-deep .mat-primary {
+  background: #3f51b5;
+  color: white;
+}

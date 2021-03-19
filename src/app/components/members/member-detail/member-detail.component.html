@@ -1,0 +1,64 @@
+<div class="row" *ngIf="user">
+    <div class="col-4">
+        <div class="card">
+            <img src="{{user.photoUrl || './assets/user.png'}}" alt="{{user.knownAs}}" class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <strong>Name:</strong>
+                    <p>{{user.firstName}} {{user.lastName}}</p>
+                </div>
+                <div>
+                    <strong>Nickname:</strong>
+                    <p>{{user.knownAs}}</p>
+                </div>
+                <div>
+                    <strong>Age:</strong>
+                    <p>{{user.age}}</p>
+                </div>
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{user.city}}, {{user.state}}</p>
+                </div>
+                <div>
+                    <strong>Last Active:</strong>
+                    <p>{{user.lastActive | date: 'dd MMM yyyy'}}</p>
+                </div>
+                <div>
+                    <strong>Member Since:</strong>
+                    <p>{{user.created | date: 'dd MMM yyyy'}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div *ngIf="currentUser.userName != user.userName" class="btn-group d-flex" role="group">
+                    <button mat-raised-button color="accent" class="w-100">Like</button>
+                    <button mat-raised-button color="primary" class="w-100">Message</button>
+                </div>
+                <div *ngIf="currentUser.userName == user.userName" class="btn-group d-flex" role="group">
+                    <button mat-raised-button color="primary" class="w-100" routerLink="/member/edit">Edit Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <mat-tab-group color="accent" dynamicHeight="true" mat-align-tabs="left">
+            <mat-tab label="About">
+                <h3>Description</h3>
+                <p>{{user.introduction}}</p>
+                <h3>Looking for</h3>
+                <p>{{user.lookingFor}}</p>
+            </mat-tab>
+            <mat-tab label="Interests">
+                <h3>Interests</h3>
+                <p>{{user.interests}}</p>
+            </mat-tab>
+            <mat-tab label="Photos">
+                <div class="d-flex justify-content-center">
+                    <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                </div>
+            </mat-tab>
+            <mat-tab label="Messages">
+                <p>messages will go here</p>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <form #loginForm="ngForm" (submit)="LoginUser($event)">
+        <h1>Login</h1>
+        <hr />
+        <div class="form-group">
+            <div class="row">
+                <div class="col-6">
+                    <label for="txtUserNameLog"><h3>Username</h3></label>
+                    <input type="text" #username="ngModel" class="form-control" required [(ngModel)]="loginUser.userName" name="username" placeholder="Username">
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                        <div *ngIf="username.errors.required">
+                        Username is required.
+                        </div>
+                    </div> 
+                    <br/>
+                    <label for="txtPasswordLog"><h3>Password</h3></label>
+                    <input type="password" #password="ngModel" class="form-control" required [(ngModel)]="loginUser.password" name="password" placeholder="Password">
+                    <div *ngIf="password.invalid && (password.dirty || username.touched)" class="alert alert-danger">
+                        <div *ngIf="password.errors.required">
+                        Password is required.
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+          <div class="row" *ngIf="!loginForm.form.invalid">
+            <div class="col-3">
+              <button mat-raised-button color="primary" type="submit">Login</button>
+            </div>
+          </div>
+        </div>
+    </form>
+</div>

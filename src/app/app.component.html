@@ -1,3 +1,11 @@
-<ul>
-    <li *ngFor="let u of users">{{u.userName}}</li>
-</ul>
+<body>
+    <ngx-spinner><br/><h2>Loading...</h2></ngx-spinner>
+    <div class="pb-4">
+        <app-navbar></app-navbar>
+    </div>
+    <div style="margin-top: 100px;">  
+    </div>
+    <div class="container rounded" style="margin-top:-10px;">
+        <router-outlet></router-outlet>
+    </div>
+</body>

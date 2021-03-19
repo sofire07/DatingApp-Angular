@@ -1,0 +1,35 @@
+.img-thumbnail {
+  margin: 25px;
+  width: 85%;
+  height: 85%;
+}
+
+.card-body {
+  padding: 0 25px;
+}
+
+.card-footer {
+  padding: 10px 15px;
+  background-color: white;
+  border-top: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lobster", cursive;
+  padding: 5px;
+}
+
+p {
+  padding-left: 5px;
+}
+
+ngx-gallery {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding-top: 5px;
+}

@@ -1,0 +1,9 @@
+::ng-deep .mat-warn {
+    background: #f44336;
+    color: white;
+  }
+  
+  ::ng-deep .mat-primary {
+    background: #3f51b5;
+    color: white;
+  }
