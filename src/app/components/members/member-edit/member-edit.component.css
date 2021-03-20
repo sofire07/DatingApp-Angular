@@ -33,3 +33,13 @@ ngx-gallery {
   margin-bottom: 20px;
   padding-top: 5px;
 }
+
+div select {
+  -webkit-appearance: menulist;
+}
+select::invalid {
+  color: grey;
+}
+textarea {
+  resize: none;
+}

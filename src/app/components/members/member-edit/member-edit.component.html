@@ -59,11 +59,11 @@
                     <div class="row pl-3">
                         <div class="col-6">
                             <label for="city">City: </label>
-                            <input [(ngModel)]="member.city" type="text" name="city" class="form-control mx-2">
+                            <input [(ngModel)]="member.city" type="text" name="city" class="form-control">
                         </div>
                         <div class="col-6">
                         <label for="state">State: </label>
-                        <select class="form-control mx-2" id="state" name="state" #state="ngModel" [(ngModel)]="member.state">
+                        <select class="form-control" id="state" name="state" #state="ngModel" [(ngModel)]="member.state">
                             <option value="" disabled selected>Select a state</option>
                             <option value="Alabama">Alabama</option>
                             <option value="Alaska">Alaska</option>
@@ -130,7 +130,7 @@
                     <div class="row pl-3">
                         <div class="col-6">
                             <label for="phone">Phone: </label>
-                            <input [(ngModel)]="member.phoneNumber" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" #phone="ngModel" class="form-control mx-2">
+                            <input [(ngModel)]="member.phoneNumber" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" #phone="ngModel" class="form-control">
                             <div *ngIf="phone.invalid && (phone.dirty)" class="alert alert-danger">
                                 <div *ngIf="phone.errors.pattern">
                                     Phone number must be in format: XXX-XXX-XXXX.
@@ -139,7 +139,7 @@
                         </div>
                         <div class="col-6">
                             <label for="email">Email: </label>
-                            <input [(ngModel)]="member.email" type="email" #email="ngModel" name="email" email class="form-control mx-2">
+                            <input [(ngModel)]="member.email" type="email" #email="ngModel" name="email" email class="form-control">
                             <div *ngIf="email.invalid && (email.dirty)" class="alert alert-danger">
                                 <div *ngIf="email.errors.email">
                                     Not a valid email address.
