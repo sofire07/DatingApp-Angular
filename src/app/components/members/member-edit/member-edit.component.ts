@@ -27,8 +27,8 @@ export class MemberEditComponent implements OnInit {
   }
 
   updateMember(){
-    this.snackSuccess("Profile updated successfully!");
-    this.userService.updateUser(this.member).subscribe(()=>this.route.navigateByUrl("/members/"+this.member.userName));
+    this.userService.updateUser(this.member).subscribe(()=>{ this.route.navigateByUrl("/members/"+this.member.userName);  this.snackSuccess("Profile updated successfully!");}, 
+      (error) => this.snackFail("There was an error updating your profile. Try again."));
   }
 
   snackSuccess(message: string) {

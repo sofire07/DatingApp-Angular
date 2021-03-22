@@ -150,9 +150,12 @@
                 </form>
                
             </mat-tab>
+            <mat-tab label='Add Photos'>
+                <app-add-photo [member]="member"></app-add-photo>
+            </mat-tab>
             <mat-tab label='Edit Photos'>
-                <!-- <app-photo-editor [member]="member"></app-photo-editor> -->
-                <p>edit photos goes here</p>
+                <app-photo-editor [member]="member"></app-photo-editor>
+                
             </mat-tab>
             <mat-tab label='Change Password'>
                 <!-- <app-photo-editor [member]="member"></app-photo-editor> -->

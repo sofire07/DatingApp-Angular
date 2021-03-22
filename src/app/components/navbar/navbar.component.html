@@ -29,7 +29,8 @@
           </ul>
         </form>
         <form class="d-flex ml-auto" *ngIf="currentUser$ | async">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <ul class="navbar-nav pt-2">
+                <img class="mr-2" src="{{user.photoUrl}}" alt=""> 
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/members/{{user.userName}}" routerLinkActive='active'>Welcome, {{user.userName}}</a>
                 </li>

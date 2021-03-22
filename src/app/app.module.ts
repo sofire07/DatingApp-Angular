@@ -27,7 +27,10 @@ import { MemberCardComponent } from './components/members/member-card/member-car
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { MemberEditComponent } from './components/members/member-edit/member-edit.component';
-import { NgxSpinnerModule } from 'ngx-spinner'
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { PhotoEditorComponent } from './components/members/photo-editor/photo-editor.component'
+import { FileUploadModule } from 'ng2-file-upload';
+import { AddPhotoComponent } from './components/members/add-photo/add-photo.component';
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import { NgxSpinnerModule } from 'ngx-spinner'
     ServerErrorComponent,
     MinimumAgeDirective,
     MemberCardComponent,
-    MemberEditComponent
+    MemberEditComponent,
+    PhotoEditorComponent,
+    AddPhotoComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,7 @@ import { NgxSpinnerModule } from 'ngx-spinner'
     MatTabsModule,
     NgxGalleryModule,
     NgxSpinnerModule,
+    FileUploadModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

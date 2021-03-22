@@ -7,7 +7,6 @@ h3,
 h4,
 h5,
 h6,
-th,
 nav {
   font-family: "Lobster", cursive;
 }
@@ -20,12 +19,12 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  color: rgba(0,0,0,.87);
+  color: rgba(0, 0, 0, 0.87);
   background-color: pink;
 }
 
 simple-snack-bar span {
-  margin:auto;
+  margin: auto;
   text-align: center;
 }
 
@@ -33,7 +32,6 @@ simple-snack-bar span {
   background: #f44336;
   color: white;
 } */
-
 
 /* warn: #f44336
 primary: #3f51b5

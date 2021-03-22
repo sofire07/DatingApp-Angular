@@ -6,21 +6,19 @@ nav {
 nav div a.navbar-brand {
   color: #ff4081;
   font-size: xx-large;
-  margin-bottom:5px;
+  margin-bottom: 5px;
 }
-
 
 nav ul li a {
   color: pink;
 }
 
 nav ul li a:hover {
-  color:#ff4081;
+  color: #ff4081;
 }
 
-nav ul li a.active{
+nav ul li a.active {
   color: #ff4081;
-
 }
 
 ::ng-deep .mat-warn {
@@ -31,4 +29,12 @@ nav ul li a.active{
 ::ng-deep .mat-primary {
   background: #3f51b5;
   color: white;
+}
+
+img {
+  max-height: 50px;
+  max-width: 50px;
+  display: inline;
+  border: 3px solid pink;
+  border-radius: 50%;
 }

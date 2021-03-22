@@ -1,0 +1,11 @@
+<div class="row text-center">
+    <div class="col-3 pt-4" *ngFor="let photo of member.photos">
+        <img src="{{photo.url}}" alt="{{photo.url}}" class="img-thumbnail p-1 ">
+        <div class="text-center pt-1">
+            <button *ngIf="photo.isMain" disabled class="disabled" mat-raised-button color="primary">Main</button>
+            <button (click)="setMainPhoto(photo)" *ngIf="!photo.isMain" mat-stroked-button color="primary">Main</button>
+            <button [disabled]="photo.isMain" (click)="deletePhoto(photo)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+        </div>
+    </div>
+</div>
+
