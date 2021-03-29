@@ -1,4 +1,4 @@
-<div class="row" *ngIf="user">
+<div class="row pt-2" *ngIf="user">
     <div class="col-4">
         <div class="card">
             <img src="{{user.photoUrl || './assets/user.png'}}" alt="{{user.knownAs}}" class="card-img-top img-thumbnail">
@@ -21,7 +21,7 @@
                 </div>
                 <div>
                     <strong>Last Active:</strong>
-                    <p>{{user.lastActive | date: 'dd MMM yyyy'}}</p>
+                    <p>{{user.lastActive | timeago}}</p>
                 </div>
                 <div>
                     <strong>Member Since:</strong>

@@ -1,8 +1,73 @@
-<div class="container">
-    <div class="row">
-        <div *ngFor="let user of users$ | async" class="col-3 pb-2">
-            <app-member-card [user]="user"></app-member-card>
+
+    <mat-drawer-container class="example-container min-vh-100">
+        <mat-drawer #drawer class="example-sidenav">
+            <div class="container mt-3">
+                <h2 class="text-center">Sort</h2>
+                <div class="container mb-3">
+                    <!-- <button type="button" class="btn btn-primary" name="orderBy" (click)="loadUsers()" btnRadio="lastActive" [(ngModel)]="userParams.orderBy">Last Active</button>
+                    <button type="button" class="btn btn-primary" name="orderBy" (click)="loadUsers()" btnRadio="created" [(ngModel)]="userParams.orderBy">Newest Members</button> -->
+                    <mat-button-toggle-group (click)="loadUsers()" [(ngModel)]="userParams.orderBy" name="orderBy">
+                        <mat-button-toggle  value="lastActive">Last Active</mat-button-toggle>
+                        <mat-button-toggle  value="created">Newest Members</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+                <hr/>
+                <form #form="ngForm" class="form mb-3 text-center" (ngSubmit)="loadUsers()" autocomplete="off">
+                    <h2>Filter</h2>
+                    <div class="form-inline pb-4 text-center justify-content-center">
+                        <label for="">Age: </label>
+                        <input type="number"  class="form-control ml-1 mr-2" style="width: 77px;" name="minAge" [(ngModel)]="userParams.minAge">
+                        -
+                        <input type="number"  class="form-control ml-2 mr-2" style="width: 77px;" name="maxAge" [(ngModel)]="userParams.maxAge">
+                    </div>
+                    <div class="form-inline pb-4 text-center justify-content-center">
+                        <label for="">Show: </label>
+                        <select class="form-control ml-1 mr-2" [(ngModel)]="userParams.gender" style="width: 117px;" name="gender">
+                            <option *ngFor="let gender of genderList" [value]="gender.value">
+                                {{gender.display}}
+                            </option>
+                        </select>
+                    </div>
+                    <button mat-raised-button color="primary" type="submit">Apply Filters</button>
+                    <button mat-raised-button color="accent" type="submit" (click)="resetFilters()">Reset Filters</button>
+                </form>
+                <div class="text-center pt-4">
+                    <button mat-raised-button color="basic" (click)="drawer.toggle()">Close</button>
+                </div>
+                
+            </div>
+
+        </mat-drawer>
+        <mat-drawer-content class="example-sidenav-content">
+        
+        <div class="container">
+            <div class="text-center pt-2 mb-3">
+                <h2 *ngIf="pagination != undefined" class="d-inline" style="margin-right: -70px;">Your matches - {{pagination.TotalCount}} found</h2>
+                 <button mat-raised-button color="primary" class="d-inline ml-auto" style="float:right;" (click)="drawer.toggle()">Filter & Sort</button>
+                
+            </div>
+            <div class="row">
+                <div *ngFor="let user of users" class="col-3 pb-2">
+                    <app-member-card [user]="user"></app-member-card>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <pagination *ngIf="pagination != undefined" class="ngx-pagination justify-content-center"
+                    [boundaryLinks]="true" 
+                    [totalItems]="pagination.TotalCount"
+                    [itemsPerPage]="pagination.PageSize"
+                    [(ngModel)]="pagination.CurrentPage"
+                    (pageChanged)="pageChanged($event)"
+                    previousText="&lsaquo;" 
+                    nextText="&rsaquo;" 
+                    firstText="&laquo;" 
+                    lastText="&raquo;">
+                    </pagination>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+        </mat-drawer-content>
+      </mat-drawer-container>
+    
 

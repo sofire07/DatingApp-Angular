@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from '../.models/user';
 import { environment } from 'src/environments/environment';
+import { UpdatePassword } from '../.models/update-password';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,10 @@ export class AccountService {
         }
       })
     );
+  }
+
+  editPassword(editPw: UpdatePassword){
+    return this.httpClient.post(this.baseUrl + "account/update-password", editPw);
   }
 
   setCurrentUser(user: UserLoggedIn){

@@ -1,4 +1,4 @@
-<div class="card mb-4">
+<div class="card mb-4" style="height: 350px">
     <div class="card-img-wrapper">
         <img src="{{user.photoUrl || './assets/user.png'}}" alt="{{user.knownAs}}" class="card-img-top">
         <ul class="list-inline member-icons animate text-center">
@@ -15,7 +15,7 @@
     </div>
     <div class="card-body p1" routerLink="/members/{{user.userName}}">
         <h4 class="card-title text-center mb-1"><i class="fa fa-user mr-2"></i>
-            {{user.userName}}
+            {{user.userName}}, {{user.age}}
         </h4>
         <h5 class="card-text text-muted text-center">{{user.city}}, {{user.state}}</h5>
     </div>

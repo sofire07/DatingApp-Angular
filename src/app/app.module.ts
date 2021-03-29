@@ -25,12 +25,22 @@ import { ServerErrorComponent } from './components/errors/server-error/server-er
 import { MinimumAgeDirective } from './.directives/minimum-age.directive';
 import { MemberCardComponent } from './components/members/member-card/member-card.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatPaginatorModule} from '@angular/material/paginator';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { MemberEditComponent } from './components/members/member-edit/member-edit.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PhotoEditorComponent } from './components/members/photo-editor/photo-editor.component'
 import { FileUploadModule } from 'ng2-file-upload';
 import { AddPhotoComponent } from './components/members/add-photo/add-photo.component';
+import { ChangePasswordComponent } from './components/members/change-password/change-password.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { TimeagoModule } from 'ngx-timeago';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+
+
 
 
 @NgModule({
@@ -50,7 +60,8 @@ import { AddPhotoComponent } from './components/members/add-photo/add-photo.comp
     MemberCardComponent,
     MemberEditComponent,
     PhotoEditorComponent,
-    AddPhotoComponent
+    AddPhotoComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -63,9 +74,15 @@ import { AddPhotoComponent } from './components/members/add-photo/add-photo.comp
     MatButtonModule,
     MatIconModule,
     MatTabsModule,
+    MatPaginatorModule,
     NgxGalleryModule,
     NgxSpinnerModule,
-    FileUploadModule
+    FileUploadModule,
+    PaginationModule,
+    ButtonsModule,
+    MatButtonToggleModule,
+    TimeagoModule.forRoot(),
+    MatSidenavModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
