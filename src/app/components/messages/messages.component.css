@@ -1,9 +1,64 @@
 ::ng-deep .mat-warn {
-    background: #f44336;
-    color: white;
-  }
-  
-  ::ng-deep .mat-primary {
-    background: #3f51b5;
-    color: white;
-  }
+  background: #f44336;
+  color: white;
+}
+
+::ng-deep .mat-primary {
+  background: #3f51b5;
+  color: white;
+}
+
+h2 {
+  font-family: "Lobster", cursive;
+}
+
+.img-circle {
+  max-height: 50px;
+  width: 50px;
+  object-fit: cover;
+  object-position: 0 0;
+}
+
+.mat-button-toggle-checked {
+  color: white;
+  pointer-events: none;
+  cursor: auto;
+  background-color: #3f51b5;
+  opacity: 0.8;
+}
+
+th {
+  font-family: "Lobster", cursive;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #ff4081;
+  border-top: none;
+  /* background-color: #ff4081;
+  color: white; */
+  background-color: #3f51b5;
+  color: pink;
+}
+
+td {
+  border: none;
+}
+
+::ng-deep
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):hover
+  .mat-button-toggle-focus-overlay {
+  opacity: 0 !important;
+}
+
+/* tr:nth-child(odd) {
+  background: rgba(255, 64, 129, 0.5);
+} */
+
+table {
+  overflow: hidden;
+  border-radius: 5px;
+}
+.table-rows {
+  cursor: pointer;
+  background: white;
+  border-bottom: 1px dotted lightgrey;
+}

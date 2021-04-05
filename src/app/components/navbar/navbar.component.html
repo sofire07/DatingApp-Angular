@@ -11,10 +11,13 @@
               <a class="nav-link" routerLink="/members" routerLinkActive='active'>Matches&nbsp;<i class="fas fa-user-friends"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/lists" routerLinkActive='active'>Lists&nbsp;<i class="fas fa-stream"></i></a>
+              <a class="nav-link" routerLink="/lists" routerLinkActive='active'>Likes&nbsp;<i class="fas fa-stream"></i></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/messages" routerLinkActive='active'>Messages&nbsp;<i class="fas fa-envelope-open-text"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="user.roles.includes('Admin') || user.roles.includes('Moderator')" routerLink="/admin" routerLinkActive='active'>Admin&nbsp;<i class="fas fa-users-cog"></i></a>
             </li>
           </ng-container>
         </ul>
@@ -30,7 +33,7 @@
         </form>
         <form class="d-flex ml-auto" *ngIf="currentUser$ | async">
             <ul class="navbar-nav pt-2">
-                <img class="mr-2" src="{{user.photoUrl}}" alt=""> 
+                <img class="mr-2" src="{{user.photoUrl || './assets/user.png'}}" alt=""> 
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/members/{{user.userName}}" routerLinkActive='active'>Welcome, {{user.userName}}</a>
                 </li>

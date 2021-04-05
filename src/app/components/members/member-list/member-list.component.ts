@@ -8,6 +8,7 @@ import { UserParams } from 'src/app/.models/userParams';
 import { AccountService } from 'src/app/.services/account.service';
 import { UserService } from 'src/app/.services/user.service';
 import { ViewEncapsulation } from '@angular/core';
+import { LikeParams } from 'src/app/.models/likeParams';
 
 @Component({
   selector: 'app-member-list',
@@ -31,7 +32,6 @@ export class MemberListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUsers()
-    
   }
   
   resetFilters(){

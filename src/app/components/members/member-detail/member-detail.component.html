@@ -3,6 +3,9 @@
         <div class="card">
             <img src="{{user.photoUrl || './assets/user.png'}}" alt="{{user.knownAs}}" class="card-img-top img-thumbnail">
             <div class="card-body">
+                <div class="mb-2" *ngIf="(presence.onlineUsers$ | async).includes(user.userName) && currentUser.userName != user.userName">
+                    <i class="fa fa-user-circle text-success"></i> Online now
+                </div>
                 <div>
                     <strong>Name:</strong>
                     <p>{{user.firstName}} {{user.lastName}}</p>
@@ -30,8 +33,9 @@
             </div>
             <div class="card-footer">
                 <div *ngIf="currentUser.userName != user.userName" class="btn-group d-flex" role="group">
-                    <button mat-raised-button color="accent" class="w-100">Like</button>
-                    <button mat-raised-button color="primary" class="w-100">Message</button>
+                    <button *ngIf="!likingUsernames.includes(user.userName)" (click)="addLike(user)" mat-raised-button color="accent" class="w-100">Like</button>
+                    <button *ngIf="likingUsernames.includes(user.userName)" (click)="removeLike(user)" mat-raised-button color="warn" class="w-100">Unlike</button>
+                    <button mat-raised-button color="primary" class="w-100" (click)="selectedIndex = 3">Message</button>
                 </div>
                 <div *ngIf="currentUser.userName == user.userName" class="btn-group d-flex" role="group">
                     <button mat-raised-button color="primary" class="w-100" routerLink="/member/edit">Edit Profile</button>
@@ -40,24 +44,25 @@
         </div>
     </div>
     <div class="col-8">
-        <mat-tab-group color="accent" dynamicHeight="true" mat-align-tabs="left">
-            <mat-tab label="About">
+        <mat-tab-group color="accent" dynamicHeight="true" mat-align-tabs="left"
+        [(selectedIndex)]="selectedIndex" (selectedTabChange)="onTabChanged($event);">
+            <mat-tab label="About" (click)="selectedIndex = 0">
                 <h3>Description</h3>
                 <p>{{user.introduction}}</p>
                 <h3>Looking for</h3>
                 <p>{{user.lookingFor}}</p>
             </mat-tab>
-            <mat-tab label="Interests">
+            <mat-tab label="Interests" (click)="selectedIndex = 1">
                 <h3>Interests</h3>
                 <p>{{user.interests}}</p>
             </mat-tab>
-            <mat-tab label="Photos">
+            <mat-tab label="Photos" (click)="selectedIndex = 2">
                 <div class="d-flex justify-content-center">
                     <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
                 </div>
             </mat-tab>
-            <mat-tab label="Messages">
-                <p>messages will go here</p>
+            <mat-tab *ngIf="currentUser.userName != user.userName" label="Messages" (click)="selectedIndex = 3">
+                <app-member-messages [username]="user.userName"></app-member-messages>
             </mat-tab>
         </mat-tab-group>
     </div>

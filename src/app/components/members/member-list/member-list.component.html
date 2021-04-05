@@ -42,18 +42,18 @@
         
         <div class="container">
             <div class="text-center pt-2 mb-3">
-                <h2 *ngIf="pagination != undefined" class="d-inline" style="margin-right: -70px;">Your matches - {{pagination.TotalCount}} found</h2>
+                <h2 *ngIf="pagination != undefined" class="d-inline" style="margin-right: -100px;">Your matches - {{pagination.TotalCount}} found</h2>
                  <button mat-raised-button color="primary" class="d-inline ml-auto" style="float:right;" (click)="drawer.toggle()">Filter & Sort</button>
                 
             </div>
             <div class="row">
                 <div *ngFor="let user of users" class="col-3 pb-2">
-                    <app-member-card [user]="user"></app-member-card>
+                    <app-member-card style="height: 350px" [user]="user"></app-member-card>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <pagination *ngIf="pagination != undefined" class="ngx-pagination justify-content-center"
+                    <pagination *ngIf="pagination != undefined && pagination.TotalPages > 1" class="ngx-pagination justify-content-center"
                     [boundaryLinks]="true" 
                     [totalItems]="pagination.TotalCount"
                     [itemsPerPage]="pagination.PageSize"

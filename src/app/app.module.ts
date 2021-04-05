@@ -38,6 +38,12 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { TimeagoModule } from 'ngx-timeago';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MemberMessagesComponent } from './components/members/member-messages/member-messages.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
+import { PhotoManagementComponent } from './admin/photo-management/photo-management.component';
+import { EditRoleDialogComponent } from './admin/user-management/edit-role-dialog/edit-role-dialog.component';
 
 
 
@@ -61,7 +67,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MemberEditComponent,
     PhotoEditorComponent,
     AddPhotoComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    MemberMessagesComponent,
+    AdminPanelComponent,
+    UserManagementComponent,
+    PhotoManagementComponent,
+    EditRoleDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +94,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatButtonToggleModule,
     TimeagoModule.forRoot(),
     MatSidenavModule,
+    MatSlideToggleModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

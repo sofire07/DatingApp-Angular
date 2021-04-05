@@ -1,0 +1,17 @@
+<h2 class="pt-2 text-center">Admin Panel</h2>
+<div class="tab-panel">
+    <mat-tab-group color="accent" dynamicHeight="true" mat-align-tabs="center"
+            [(selectedIndex)]="selectedIndex">
+            <!-- (selectedTabChange)="onTabChanged($event);"> -->
+                <mat-tab label="User Management" *ngIf="currentUser.roles.includes('Admin')" (click)="selectedIndex = 0">
+                    <div class="container">
+                        <app-user-management></app-user-management>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Photo Management" *ngIf="currentUser.roles.includes('Admin') || currentUser.roles.includes('Moderator')" (click)="selectedIndex = 1">
+                    <div class="container">
+                        <app-photo-management></app-photo-management>
+                    </div>
+                </mat-tab>
+    </mat-tab-group>
+</div>

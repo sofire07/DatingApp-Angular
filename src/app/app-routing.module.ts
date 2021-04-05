@@ -12,6 +12,9 @@ import { PreventUnsavedChangesGuard } from './.guards/prevent-unsaved-changes.gu
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
 import { ServerErrorComponent } from './components/errors/server-error/server-error.component';
 import { MemberEditComponent } from './components/members/member-edit/member-edit.component';
+import { MemberMessagesComponent } from './components/members/member-messages/member-messages.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { AdminGuard } from '../app/.guards/admin.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -25,7 +28,8 @@ const routes: Routes = [
       {path: "member/edit", component: MemberEditComponent},
       {path: "members", component: MemberListComponent},
       {path: "members/:userName", component: MemberDetailComponent},
-    ]
+      {path: "admin", component: AdminPanelComponent, canActivate: [AdminGuard]}
+        ]
   },
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},

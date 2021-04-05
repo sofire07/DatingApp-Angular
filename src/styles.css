@@ -32,6 +32,10 @@ simple-snack-bar span {
   text-align: center;
 }
 
+.mat-dialog-container {
+  background: rgb(255, 165, 180);
+}
+
 /* simple-snack-bar::ng-deep .mat-warn {
   background: #f44336;
   color: white;

@@ -1,1 +1,15 @@
-<p class="pt-2">lists works!</p>
+<div class="container pt-2">
+    <div class="Centered">
+        <h2>You Like&nbsp;&nbsp;</h2><mat-slide-toggle class="mb-3" [(ngModel)]="isChecked"></mat-slide-toggle><h2>&nbsp;&nbsp;Like You</h2>
+    </div>
+    <div class="row" *ngIf="isChecked">
+        <div *ngFor="let user of likedBy" class="col-3 pb-2">
+            <app-member-card [user]="user"></app-member-card>
+        </div>
+    </div>
+    <div class="row" *ngIf="!isChecked">
+        <div *ngFor="let user of liking" class="col-3 pb-2">
+            <app-member-card [user]="user"></app-member-card>
+        </div>
+    </div>
+</div>

@@ -29,8 +29,14 @@ export class ErrorInterceptor implements HttpInterceptor {
                   }
                 }
                 throw modalStateErrors;
-              } else{
-                this.snack.open(error.status + " Bad Request", null, {
+              } else if(typeof(error.error) === 'object'){
+                this.snack.open(error.statusText + " " + error.status, null, {
+                  duration: 3000,
+                  panelClass: ['mat-warn'],
+                });
+              }
+              else{
+                this.snack.open(error.error + " " + error.status, null, {
                   duration: 3000,
                   panelClass: ['mat-warn'],
                 });

@@ -1,0 +1,25 @@
+table {
+  overflow: hidden;
+  border-radius: 5px;
+}
+.table-rows {
+  cursor: pointer;
+  background: white;
+  border-bottom: 1px dotted lightgrey;
+}
+
+th {
+  font-family: "Lobster", cursive;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #ff4081;
+  border-top: none;
+  /* background-color: #ff4081;
+    color: white; */
+  background-color: #3f51b5;
+  color: pink;
+}
+
+td {
+  border: none;
+}

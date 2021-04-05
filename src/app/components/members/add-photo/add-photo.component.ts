@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { UserLoggedIn } from 'src/app/.models/user-logged-in';
+import { AccountService } from 'src/app/.services/account.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -14,7 +15,7 @@ export class AddPhotoComponent implements OnInit {
   hasBaseDropzoneOver = false;
   baseUrl = environment.apiUrl;
 
-  constructor() { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.initializeUploader();
@@ -45,8 +46,13 @@ export class AddPhotoComponent implements OnInit {
       if(response){
 
         const photo = JSON.parse(response);
+        console.log(photo);
+        if(this.member.photos.length == 0){
+          this.member.photoUrl = photo.url;
+        }
         this.member.photos.push(photo);
-
+        this.accountService.setCurrentUser(this.member);
+        
       }
     }
   }

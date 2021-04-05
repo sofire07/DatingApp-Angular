@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/.services/user.service';
 import { LoginUser } from '../../.models/login-user'
 import { UserLoggedIn } from '../../.models/user-logged-in'
 import { AccountService } from '../../.services/account.service'
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
 
   LoginUser(event){
     event.preventDefault();
-    this.account.loginUser(this.loginUser).subscribe((res) => this.router.navigateByUrl('/'),
+    this.account.loginUser(this.loginUser).subscribe((res) => {
+      this.router.navigateByUrl('/members')},
         (error) => {                              
           if(typeof error.error != "string") {
             this.openSnackBar("An error occured. Please try again.");

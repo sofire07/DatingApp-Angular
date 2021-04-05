@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/.models/user';
 import { UserLoggedIn } from 'src/app/.models/user-logged-in';
 import { AccountService } from 'src/app/.services/account.service';
+import { UserService } from 'src/app/.services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit {
   // loggedIn: boolean;
   currentUser$: Observable<UserLoggedIn>;
   user: UserLoggedIn;
-  constructor(private router: Router, private account: AccountService) { }
+  constructor(private router: Router, private account: AccountService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.currentUser$ = this.account.currentUser$;
@@ -22,7 +23,7 @@ export class NavbarComponent implements OnInit {
   }
 
   Logout(){
-    this.account.logout();
+    this.userService.logout();
     this.router.navigateByUrl('/');
   }
 

@@ -10,6 +10,7 @@ export class UserParams{
     orderBy = 'lastActive';
 
     constructor(user: UserLoggedIn) {
-        this.gender = user.gender === "female" ? 'male' : 'female';
+        if(user.gender == "female" || user.gender == "Female") this.gender = 'male';
+        if(user.gender == 'male' || user.gender == "Male") this.gender = 'female';
     }
 }

@@ -1,3 +1,7 @@
+div.card {
+  height: 350px;
+}
+
 .card:hover img {
   transform: scale(1.2, 1.2);
   transition-duration: 500ms;
@@ -9,6 +13,9 @@
   transform: scale(1, 1);
   transition-duration: 500ms;
   transition-timing-function: ease-out;
+  height: 250px;
+  object-fit: cover;
+  object-position: 0 0;
 }
 
 .card-img-wrapper {
@@ -37,4 +44,55 @@
 
 div.card-body {
   cursor: pointer;
+}
+
+div.small-footer {
+  display: none;
+}
+
+@keyframes fa-blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.is-online {
+  animation: fa-blink 1.5s linear infinite;
+  color: rgb(1, 189, 42);
+}
+
+@media only screen and (max-width: 767px) {
+  div.card {
+    max-height: 125px;
+  }
+
+  .card img {
+    height: 150px;
+    object-fit: cover;
+    object-position: 0 0;
+  }
+
+  div.card-body {
+    display: none;
+  }
+
+  div ul li.like-button {
+    display: none;
+  }
+
+  div ul li.message-button {
+    display: none;
+  }
+
+  div.small-footer {
+    text-align: justify;
+    height: 75px;
+    display: inline-block;
+  }
+  div.small-footer h6 {
+    text-align: justify;
+  }
 }

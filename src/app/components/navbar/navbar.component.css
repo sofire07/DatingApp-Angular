@@ -46,5 +46,11 @@ img {
   max-width: 50px;
   display: inline;
   border: 3px solid pink;
-  border-radius: 50%;
+  border-radius: 15%;
+}
+
+@media only screen and (max-width: 1023px) {
+  img {
+    display: none;
+  }
 }

@@ -20,4 +20,5 @@ export interface User {
     city: string;
     state: string;
     photos: Photo[];
+    roles: string[];
 }

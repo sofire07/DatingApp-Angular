@@ -1,22 +1,32 @@
-<div class="card mb-4" style="height: 350px">
+<div class="card mb-4">
     <div class="card-img-wrapper">
         <img src="{{user.photoUrl || './assets/user.png'}}" alt="{{user.knownAs}}" class="card-img-top">
         <ul class="list-inline member-icons animate text-center">
             <li class="list-inline-item">
                 <button mat-mini-fab color="basic" routerLink="/members/{{user.userName}}"><i class="fa fa-user"></i></button>
             </li>
-            <li class="list-inline-item">
-                <button mat-mini-fab color="accent"><i class="fa fa-heart"></i></button>
+            <li class="list-inline-item like-button">
+                <button *ngIf="!likingUsernames.includes(user.userName)" mat-mini-fab color="accent" (click)="addLike(user)"><i class="fa fa-heart"></i></button>
+                <button *ngIf="likingUsernames.includes(user.userName)" mat-mini-fab color="warn" (click)="removeLike(user)"><i class="fas fa-heart-broken"></i></button>
             </li>
-            <li class="list-inline-item">
-                <button mat-mini-fab color="primary"><i class="fa fa-envelope"></i></button>
+            <li class="list-inline-item message-button">
+                <button mat-mini-fab color="primary" routerLink="/members/{{user.userName}}" [queryParams]="{tab: '3'}"><i class="fa fa-envelope"></i></button>
             </li>
         </ul>
     </div>
     <div class="card-body p1" routerLink="/members/{{user.userName}}">
-        <h4 class="card-title text-center mb-1"><i class="fa fa-user mr-2"></i>
+        <h4 class="card-title text-center mb-1">
+            <span [class.is-online]="(presence.onlineUsers$ | async).includes(user.userName)">
+                <i class="fa fa-user mr-2"></i>
+            </span>
+            
             {{user.userName}}, {{user.age}}
         </h4>
         <h5 class="card-text text-muted text-center">{{user.city}}, {{user.state}}</h5>
+    </div>
+    <div class="card-body small-footer" routerLink="/members/{{user.userName}}">
+        <h6 class="text-center" style="margin-left: -15px; margin-right: -15px;">
+            {{user.userName}}
+        </h6>
     </div>
 </div>
